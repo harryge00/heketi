@@ -50,7 +50,7 @@
                 "serviceAccountName": "heketi-service-account",
                 "containers": [
                     {
-                        "image": "heketi/heketi:dev",
+                        "image": "cargo.caicloud.io/caicloud/heketi",
                         "imagePullPolicy": "Always",
                         "name": "heketi",
                         "env": [
