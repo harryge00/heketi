@@ -25,7 +25,7 @@ func (v *VolumeEntry) allocBricksInCluster(db *bolt.DB,
 	// Note: subsequent calls to gen need to return decreasing
 	//       brick sizes in order for the following code to work!
 	gen := v.Durability.BrickSizeGenerator(size)
-	logger.Debug("size:%v", size)
+	logger.Debug("allocBricksInCluster size:%v", size)
 
 	// Try decreasing possible brick sizes until space is found
 	for {
@@ -70,7 +70,7 @@ func (v *VolumeEntry) allocBricks(
 	cluster string,
 	bricksets int,
 	brick_size uint64) (brick_entries []*BrickEntry, e error) {
-
+	logger.Info("allocBricks brick_size:%v, bricksets: %v", brick_size, bricksets)
 	// Setup garbage collector function in case of error
 	defer func() {
 

@@ -11,7 +11,7 @@ package glusterfs
 
 var (
 	// Default limits
-	BrickMinSize = uint64(1 * GB)
+	BrickMinSize = uint64(1 * MB)
 	BrickMaxSize = uint64(4 * TB)
 	BrickMaxNum  = 32
 )

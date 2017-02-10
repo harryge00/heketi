@@ -34,6 +34,7 @@ func (a *App) VolumeCreate(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "request unable to be parsed", 422)
 		return
 	}
+	logger.Info("Size: %d, Cluster: %v, Name: %s, Durability: {Type:%v, Replicate:%v, Disperse:%v}", msg.Size, msg.Clusters, msg.Name, msg.Durability.Type, msg.Durability.Replicate, msg.Durability.Disperse)
 
 	// Check group id
 	switch {
