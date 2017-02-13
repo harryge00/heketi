@@ -19,4 +19,5 @@ VOLUME /var/lib/heketi
 ENTRYPOINT ["/usr/bin/heketi"]
 EXPOSE 8080
 
+WORKDIR /etc/heketi
 CMD ["-config=/etc/heketi/heketi.json"]
