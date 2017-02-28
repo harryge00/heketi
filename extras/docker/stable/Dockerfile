@@ -5,11 +5,7 @@ MAINTAINER Luis Pabón <lpabon@redhat.com>
 LABEL version="1.0"
 LABEL description="Centos 7 docker image for Heketi"
 
-RUN yum --setopt=tsflags=nodocs -q -y update; yum clean all;
-RUN yum --setopt=tsflags=nodocs -q -y install epel-release && \
-    yum --setopt=tsflags=nodocs -q -y install heketi && \
-    yum -y autoremove && \
-    yum -y clean all
+COPY heketi /usr/bin/heketi
 
 # post install config and volume setup
 VOLUME /etc/heketi
@@ -20,4 +16,5 @@ ENTRYPOINT ["/usr/bin/heketi"]
 EXPOSE 8080
 
 WORKDIR /etc/heketi
+
 CMD ["-config=/etc/heketi/heketi.json"]
