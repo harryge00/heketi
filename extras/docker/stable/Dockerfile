@@ -6,6 +6,8 @@ LABEL version="1.0"
 LABEL description="Centos 7 docker image for Heketi"
 
 COPY heketi /usr/bin/heketi
+COPY load_cluster /usr/bin/load_cluster
+COPY heketi-cli /usr/bin/heketi-cli
 
 # post install config and volume setup
 VOLUME /etc/heketi
