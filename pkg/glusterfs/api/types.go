@@ -184,6 +184,32 @@ type VolumeExpandRequest struct {
 	Size int `json:"expand_size"`
 }
 
+type BrickPort struct {
+	RDMA      string           `json:"rdma"`
+	TCP      int           `json:"tcp"`
+}
+
+type VolumeNode struct {
+	BlockSize      int           `json:"blockSize"`
+	Device      string           `json:"device"`
+	FsName      string           `json:"fsName"`
+	HostName      string           `json:"hostname"`
+	MntOptions     string           `json:"mntOptions"`
+	Path     string           `json:"path"`
+	PeerID     string           `json:"peerid"`
+	PID     string           `json:"pid"`
+	Port     string           `json:"port"`
+	Ports     BrickPort           `json:"ports"`
+	SizeFree     uint64           `json:"sizeFree"`
+	SizeTotal     uint64           `json:"sizeTotal"`
+	Status     int           `json:"status"`
+}
+
+type VolumeDetail struct {
+	VolName      string           `json:"volName"`
+	NodeCount      int           `json:"nodeCount"`
+	Node      []VolumeNode           `json:"node"`
+}
 // Constructors
 
 func NewVolumeInfoResponse() *VolumeInfoResponse {
