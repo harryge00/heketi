@@ -13,10 +13,12 @@ RUN yum --setopt=tsflags=nodocs -q -y install epel-release && \
 
 # post install config and volume setup
 VOLUME /etc/heketi
-VOLUME /var/lib/heketi
-
+ADD heketi.json /var/lib/heketi/heketi.json
+ADD heketi-cli /usr/bin/heketi-cli
+ADD load_cluster /usr/bin/load_cluster 
+ADD init_heketi.sh /usr/bin/init_heketi.sh
 # expose port, set user and set entrypoint with config option
 ENTRYPOINT ["/usr/bin/heketi"]
 EXPOSE 8080
 
-CMD ["-config=/etc/heketi/heketi.json"]
+CMD ["-config=/var/lib/heketi/heketi.json"]
