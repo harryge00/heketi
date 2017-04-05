@@ -9,11 +9,11 @@
 	"jwt" : {
 		"_admin" : "Admin has access to all APIs",
 		"admin" : {
-			"key" : "My Secret"
+			"key" : "caicloudAdmin9138"
 		},
 		"_user" : "User only has access to /volumes endpoint",
 		"user" : { 
-			"key" : "My Secret"
+			"key" : "caicloudUser9138"
 		}
 	},
 
@@ -21,9 +21,13 @@
 	"glusterfs" : {
 
 		"_executor_comment": "Execute plugin. Possible choices: mock, ssh",
-		"executor" : "mock",
+		"executor" : "ssh",
+		"sshexec": {
+			"user": "root",
+			"keyfile": "/root/.ssh/id_rsa"
 
+		},
 		"_db_comment": "Database file name",
-		"db" : "/var/lib/heketi/heketi.db"
+		"db" : "/etc/heketi/heketi.db"
 	}
 }
